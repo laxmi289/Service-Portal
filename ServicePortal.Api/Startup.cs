@@ -40,9 +40,11 @@ namespace ServicePortal.Api
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
+            //Configure DB
             services.AddDbContext<AppDbContext>(options =>
                                  options.UseSqlServer(Configuration.GetConnectionString("ServicePortalDB")));
 
+            //Configuring Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
