@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using ServicePortal.Api.Models;
+using ServicePortal.Api.Models.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,7 @@ namespace ServicePortal.Api
                                  options.UseSqlServer(Configuration.GetConnectionString("ServicePortalDB")));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
             services.AddControllers();
 

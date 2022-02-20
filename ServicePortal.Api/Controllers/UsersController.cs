@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using ServicePortal.Api.Models;
+using ServicePortal.Api.Models.Repository;
 
 namespace ServicePortal.Api.Controllers
 {

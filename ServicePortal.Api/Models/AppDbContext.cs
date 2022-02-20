@@ -13,6 +13,7 @@ namespace ServicePortal.Api.Models
         }
 
         public DbSet<UserData> UserData { get; set; }
+        public DbSet<Department> Department { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
