@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using ServicePortal.Api.Models;
 using ServicePortal.Api.Models.Repository;
+using ServicePortal.Api.Models.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;

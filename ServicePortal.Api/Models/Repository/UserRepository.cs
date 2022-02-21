@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ServicePortal.Api.Models.Services;
 using ServicePortal.Models;
 using System;
 using System.Collections.Generic;

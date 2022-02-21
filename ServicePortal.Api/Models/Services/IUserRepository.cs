@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ServicePortal.Api.Models.Repository
+namespace ServicePortal.Api.Models.Services
 {
     public interface IUserRepository
     {

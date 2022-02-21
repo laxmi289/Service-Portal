@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ServicePortal.Api.Models.Repository;
+using ServicePortal.Api.Models.Services;
 using ServicePortal.Models;
 using System;
 using System.Collections.Generic;
