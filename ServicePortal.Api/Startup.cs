@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Newtonsoft.Json.Serialization;
 using ServicePortal.Api.Models;
 using ServicePortal.Api.Models.Repository;
 using ServicePortal.Api.Models.Services;
+using ServicePortal.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,13 +43,20 @@ namespace ServicePortal.Api
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
+
             //Configure DB
             services.AddDbContext<AppDbContext>(options =>
                                  options.UseSqlServer(Configuration.GetConnectionString("ServicePortalDB")));
 
+
+            //Configure the values for MailSettings model class from app.json file
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+
+
             //Configuring Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddTransient<IMailService, MailService>();
 
             services.AddControllers();
 
